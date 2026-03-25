@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default title{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static "styles.css" %}" />
+</head>
+</head>
+<body>
+    <div id="wrapper">
+    <div id="header">
+    <div id="menu">
+	<a href="/">Главная</a>
+	<a href="/list">Породы</a>
+	<a href="/photos">Фотографии</a>
+	<a href="/onas">О нас</a>
+    <a href="/addbreedform/">Добавить породу</a>
+    <a href="/adddogform/">Добавить собаку</a>
+</div>
+    </div>
+    <div id="container">
+        <div id="sidebar">
+            <ul>
+                {% for poroda in breed %}
+                    <li><a href="/breed/{{poroda.id}}">{{poroda.title}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    <div id="content">
+        {% block content %} content {% endblock content %}
+    </div>
+ </div>
+ <div id="footer">
+    footer
+ </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Редактирование собаки{% endblock title %}
+{% block content %}
+    <h1>Форма для изменения собаки</h1>
+    <form action="/editdog/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{id}}">
+        <input type="text" name="name" placeholder="Кличка" value="{{old.name}}"><br>
+        <input type="number" name="age" placeholder="Возраст" value="{{old.age}}"><br>
+        <input type="text" name="weight" placeholder="Вес" value="{{old.weight}}"><br>
+        <textarea name="desc" placeholder="Описание">{{old.description}}</textarea><br>
+        <select name="breed">
+            {% for poroda in breeds %}
+                <option value="{{poroda.id}}" {% if poroda.id == old.breed.id %} selected {% endif %}>{{poroda.title}}</option>
+                {{poroda.id}}
+                {{id}}
+            {% endfor %}
+        </select>
+        <br>
+        <input type="file" name="image" accept="image/*"><br>
+        <input type="submit" value="Сохранить">
+    </form>
+{% endblock content %}

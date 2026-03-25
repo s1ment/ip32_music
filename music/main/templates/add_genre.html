@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Добавление жанров{% endblock title %}
+{% block content %}
+<h1>Добавление жанров</h1>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+    <table>
+       <div>
+            <label for="id_name_ru">Название жанра (русский):</label><br>
+            <input type="text" name="name_ru" id="id_name_ru" required >
+        </div>
+
+        <div>
+            <label for="id_name_en">Название жанра (английский):</label><br>
+            <input type="text" name="name_en" id="id_name_en" required >
+        </div>
+        
+        <div>
+            <label for="id_description">Описание жанра:</label><br>
+            <textarea name="description" id="id_description" rows="4" cols="50"></textarea>
+        </div>
+    </table>
+    <input type="submit" value="Send" >
+</form>
+</body>
+{% endblock content %}

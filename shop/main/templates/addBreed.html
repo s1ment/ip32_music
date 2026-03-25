@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Добавление породы{% endblock %}
+{% block content %}
+<h1>Форма для добавления породы</h1>
+<form action="/addbreed/" method="post">
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="Введите название породы">
+    <input type="submit" value="Сохранить">
+</form>
+{% endblock %}

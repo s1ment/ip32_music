@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Добавление собаки{% endblock title %}
+{% block content %}
+<h1>Форма для добавления собаки</h1>
+<form action="/adddog/" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<input type="text" name="name" placeholder="Кличка"><br>
+<input type="number" name="age" placeholder="Возраст"><br>
+<input type="number" name="weight" placeholder="Вес"><br>
+<textarea name="desc" placeholder="Описание"></textarea><br>
+<select name="breed">
+{% for poroda in breeds %}
+<option value="{{poroda.id}}">{{poroda.title}}</option>
+{% endfor %}
+</select>
+<br>
+<input type="file" name="image" accept = "image/*"><br>
+<input type = "submit" value="Сохранить">
+</form>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+    {% block title %}Главная{% endblock title %}
+    {% block sidebar %}
+    <ul>
+            {% for poroda in breed %}
+                    <li><a href="/breed/{{poroda.id}}">{{poroda.title}}</a></li>
+            {% endfor %}
+    </ul>
+    {% endblock sidebar %}
+    {% block content %}
+    <ol>
+   {% for sobaka in dog %}
+            <h3><a href="/dog/{{sobaka.id}}">{{sobaka.name}}</a></h3>
+            {% endfor %}
+    </ol>
+    {% endblock content %}

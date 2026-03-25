@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Собака{% endblock title %}
+        {% block content %}
+        <h1>Собака №{{dog.id}}</h1>
+            <h3>Кличка: {{dog.name}}</h3>
+            <h3>Возраст: {{dog.age}}</h3>
+            <h3>Вес: {{dog.weight}}</h3>
+            <h3>Описание: {{dog.description}}</h3>
+            <h3>Порода: {{dog.breed.title}}</h3>
+            <img class="img" src="{{dog.photo.url}}" alt="">
+
+            <a href="/editdogform/{{dog.id}}">Изменить информацию</a>
+            <a href="/deletedog/{{dog.id}}">Удалить собаку</a>
+
+        {% endblock content %}

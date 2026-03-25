@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Фотографии{% endblock title %}
+{% block content %}
+<ul>
+    {% for dog in dog %}
+        <img class="img" src="{{dog.photo.url}}" alt="">
+    {% endfor %}
+</ul>
+{% endblock content %}
