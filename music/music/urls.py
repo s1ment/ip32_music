@@ -8,6 +8,7 @@ urlpatterns = [
     path('index', views.index),
     path('genres/', views.genres),
     path('track/', views.track),
+    path('artists/', views.artists),
     path('add_genre/', views.add_genre),
     path('editgenre/<int:id_genre>', views.edit_genre),
 ]

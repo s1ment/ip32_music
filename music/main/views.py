@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Genres
-from .models import Track
-from .forms import GenreForm
+from .models import Track, Artist
+from .forms import GenreForm, ArtistForm
 def index (request):
     genres1 = Genres.objects.all
     return render (request, 'index.html', {'genres1': genres1})
@@ -13,6 +13,10 @@ def genres (request):
 def track(request):
     track1 = Track.objects.all()
     return render (request, 'track.html', {'track1': track1})
+
+def artists(request):
+    a = Artist.objects.all()
+    return render(request, 'artists.html', {'artists': a})
 
 def add_genre(request):
     if request.method == "POST":  
