@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Добавить артиста{% endblock %}
+{% block content %}
+    <h1>Добавить нового артиста</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <br>
+        <button type="submit" style="padding: 10px 20px; font-size: 16px;">
+            Сохранить артиста
+        </button>
+    </form>
+    <p>
+        <a href="{% url 'artists' %}">Вернуться к списку артистов</a>
+    </p>
+{% endblock %}

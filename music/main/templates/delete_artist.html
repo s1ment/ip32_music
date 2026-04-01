@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Удалить артиста{% endblock %}
+{% block content %}
+    <h1>Удалить артиста</h1>
+    <p>Вы действительно хотите удалить артиста <strong>"{{artist.name}}"</strong>?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Да, удалить</button>
+        <a href="{% url 'artists' %}">Отмена</a>
+    </form>
+{% endblock %}
